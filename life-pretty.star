@@ -1,4 +1,4 @@
-#Game of Life (with cell aging) for Tidbyt by Kay Savetz
+#Game of Life (with cell aging and decay) for Tidbyt by Kay Savetz
 #Dec 10 2021
 
 load("render.star", "render")

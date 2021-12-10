@@ -50,8 +50,8 @@ def main():
 						new[y][x]=1
 					elif sum==2:
 						new[y][x]=old[y][x]
-					else:
-						new[y][x]=0
+					#else:
+					#	new[y][x]=0 #implied; this is the default because we blanked the new playfield
 						
 		generation+=1	
 		print("Generation " + str(generation))

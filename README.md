@@ -8,4 +8,8 @@ I don't have my [Tidbyt](https://tidbyt.com/) display yet so I don't know how we
 2. Run `pixlet serve life.star`
 3. Go to [http://localhost:8080](http://localhost:8080)
 
+### Regular version
 ![Preview](life.gif)
+
+### "Pretty" version adds colors for cell aging and decay
+![Preview](life-pretty.gif)

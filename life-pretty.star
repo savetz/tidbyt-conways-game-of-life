@@ -88,7 +88,7 @@ def main():
 	print(str(len(frames)) + " frames")
 	
 	return render.Root(
-		delay = 5,
+		delay = 100,
 		child = render.Animation(
 			children=frames,
 		)

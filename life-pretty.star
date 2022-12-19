@@ -4,6 +4,7 @@
 load("render.star", "render")
 load("http.star", "http")
 load("re.star", "re")
+load("random.star", "random")
 
 WIDTH=64
 HEIGHT=32
@@ -11,14 +12,6 @@ HEIGHT=32
 def main():
 
 	#Seed the playfield with random pixels
-	#neither Starlark nor the Tidbyt modules provide a random number function(!) so we'll
-	#cheat by fetching random numbers from random.org. Info at https://www.random.org/clients/http/
-	resp = http.get("https://www.random.org/integers/?num=" + str(WIDTH*HEIGHT) + "&min=0&max=2&col=1&base=10&format=plain&rnd=new")
-	if resp.status_code != 200:
-		fail("Request failed with status %d", resp.status_code)
-	random = resp.body()
-	random = re.sub("\n","",random) #squish the numbers into a string of digits
-
 	generation=0
 	frames=[]
 	new = [[0 for i in range(WIDTH+2)] for j in range(HEIGHT+2)] #blank the playfield
@@ -27,7 +20,7 @@ def main():
 	counter=0
 	for y in range(1,HEIGHT+1):
 		for x in range(1,WIDTH+1):
-			if(random[counter] == "0"): #seeding a third of the pixels works nicely IMO
+			if(random.number(0,3) == 0): #seeding a third of the pixels works nicely IMO
 				new[y][x] = 1
 			counter+=1
 
